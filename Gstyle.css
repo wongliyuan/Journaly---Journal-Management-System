@@ -1,0 +1,607 @@
+/* Import Google font - Poppins */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+a {
+  text-decoration: none;
+}
+.header {
+  position: sticky;
+  height: 80px;
+  width: 100%;
+  z-index: 100;
+  padding: 0 20px;
+}
+.nav {
+  max-width: 1100px;
+  width: 100%;
+  margin: 0 auto;
+}
+.nav,
+.nav_item {
+  display: flex;
+  height: 100%;
+  align-items: center;
+  justify-content: space-between;
+}
+.nav_logo,
+.nav_link,
+.button {
+  color: #333;
+}
+.nav_logo {
+  font-size: 25px;
+}
+.nav_item {
+  column-gap: 25px;
+}
+.nav_link:hover {
+  color: #d9d9d9;
+}
+.button-login {
+  padding: 6px 24px;
+  border: 2px solid #333;
+  background: transparent;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.button:active {
+  transform: scale(0.98);
+}
+
+/* Home */
+.home {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+}
+.home::before {
+  content: "";
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 100;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.5s ease-out;
+}
+.home.show::before {
+  opacity: 1;
+  pointer-events: auto;
+}
+/* Login, SignUp Form */
+.form_container {
+  position: fixed;
+  max-width: 320px;
+  width: 100%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1.2);
+  z-index: 101;
+  background: #fff;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.4s ease-out;
+}
+.home.show .form_container {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translate(-50%, -50%) scale(1);
+}
+.signup_form {
+  display: none;
+}
+.form_container.active .signup_form {
+  display: block;
+}
+.form_container.active .login_form {
+  display: none;
+}
+.form_close {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  color: #0b0217;
+  font-size: 22px;
+  opacity: 0.7;
+  cursor: pointer;
+}
+.form_container h2 {
+  font-size: 22px;
+  color: #0b0217;
+  text-align: center;
+}
+.input_box {
+  position: relative;
+  margin-top: 30px;
+  width: 100%;
+  height: 40px;
+}
+.input_box input {
+  height: 100%;
+  width: 100%;
+  border: none;
+  outline: none;
+  padding: 0 30px;
+  color: #333;
+  transition: all 0.2s ease;
+  border-bottom: 1.5px solid #aaaaaa;
+}
+.input_box input:focus {
+  border-color: #7180ac;
+}
+.input_box i {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 20px;
+  color: #707070;
+}
+.input_box i.email,
+.input_box i.password {
+  left: 0;
+}
+.input_box input:focus ~ i.email,
+.input_box input:focus ~ i.password {
+  color: #7180ac;
+}
+.input_box i.pw_hide {
+  right: 0;
+  font-size: 18px;
+  cursor: pointer;
+}
+.option_field {
+  margin-top: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.form_container a {
+  color: #7180ac;
+  font-size: 12px;
+}
+.form_container a:hover {
+  text-decoration: underline;
+}
+.checkbox {
+  display: flex;
+  column-gap: 8px;
+  white-space: nowrap;
+}
+.checkbox input {
+  accent-color: #7180ac;
+}
+.checkbox label {
+  font-size: 12px;
+  cursor: pointer;
+  user-select: none;
+  color: #0b0217;
+}
+.form_container .button {
+  background: #7180ac;
+  margin-top: 30px;
+  width: 100%;
+  padding: 10px 0;
+  border-radius: 10px;
+  color: #fff;
+}
+.login_signup {
+  font-size: 12px;
+  text-align: center;
+  margin-top: 15px;
+}
+
+/* Forgot Password Form */
+.formContainer {
+  position: absolute; /* Position it relative to the page */
+  top: 50%; /* Move it to the vertical center */
+  left: 50%; /* Move it to the horizontal center */
+  transform: translate(-50%, -50%); /* Center it perfectly */
+  width: 100%;
+  max-width: 400px;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.formContainer h2 {
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.formContainer button {
+  width: 100%;
+  padding: 10px;
+  margin-top: 30px;
+  background-color: #7180ac;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.formContainer button:hover {
+  background-color: #8793bd;
+}
+
+/* HomePage */
+/* Hero Section */
+.hero {
+  background: url('https://images.unsplash.com/photo-1437751068958-82e6fccc9360?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D') center/cover no-repeat;
+  height: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  text-align: center;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.hero p {
+  font-size: 1.25rem;
+  margin-bottom: 1.5rem;
+}
+
+.cta-button {
+  background-color: #F97C7C;
+  color: #fff;
+  padding: 0.75rem 2rem;
+  border-radius: 5px;
+  text-decoration: none;
+  margin: 0.5rem;
+  font-size: 1rem;
+}
+
+.cta-button:hover {
+  background-color: #FDAAAA;
+}
+
+/* Features Section */
+.features {
+  background-color: #fff;
+  padding: 3rem 0;
+  text-align: center;
+}
+
+.features h2 {
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+}
+
+.feature {
+  display: inline-block;
+  width: 30%;
+  margin: 1rem;
+  text-align: center;
+}
+
+.feature i {
+  font-size: 3rem;
+  color: #F97C7C;
+  margin-bottom: 1rem;
+}
+
+.feature h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.feature p {
+  font-size: 1rem;
+  color: #777;
+}
+
+/* How It Works Section */
+.how-it-works {
+  padding: 48px 0; /* Top and bottom padding */
+  background-color: #f9f9f9;
+  text-align: center;
+}
+
+.how-it-works h2 {
+  font-size: 40px; /* Heading font size */
+  margin-bottom: 32px; /* Spacing below heading */
+  color: #333;
+}
+
+.how-it-works .steps {
+  display: flex;
+  flex-direction: column; /* Stack steps vertically */
+}
+
+.step {
+  display: flex;
+  flex-direction: row; /* Arrange image and text side by side */
+  align-items: center;
+  justify-content: flex-start; /* Align items to the start */
+  width: 100%; /* Take full width of the screen */
+  padding: 32px 40px; /* Inner spacing for each step */
+  max-height: 300px;
+}
+
+.step-img {
+  width: 40%; /* Make the image take 40% of the step width */
+  max-width: 400px; /* Limit the maximum width of the image */
+  height: auto; /* Keep the aspect ratio */
+  margin-left: 50px;
+}
+
+.step-content {
+  width: 60%; /* Make the text take 60% of the step width */
+  text-align: left; /* Align text to the left */
+  padding-left: 50px; /* Space between image and text */
+}
+
+.step h3 {
+  font-size: 40px; /* Font size for the step title */
+  margin-bottom: 20px; /* Spacing below the title */
+  color: #F97C7C; /* Color matching the theme */
+}
+
+.step p {
+  font-size: 20px; /* Font size for the step description */
+  color: #555; /* Slightly darker text for better readability */
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .how-it-works h2 {
+    font-size: 32px; /* Adjust heading font size */
+  }
+
+  .step {
+    flex-direction: column; /* Stack the image and text vertically on small screens */
+    padding: 24px; /* Adjust padding for smaller screens */
+  }
+
+  .step-img {
+    width: 100%; /* Make the image span the full width */
+    max-width: none; /* Remove the maximum width */
+    margin-bottom: 16px; /* Add space below the image */
+  }
+
+  .step-content {
+    width: 100%; /* Make the text span the full width */
+    text-align: center; /* Center-align text on smaller screens */
+    padding-left: 0; /* Remove left padding */
+  }
+}
+
+/* Footer */
+footer {
+  background-color: #F97C7C; /* Soft beige for footer */
+  padding: 1rem;
+  text-align: center;
+  color: #fff;
+}
+
+footer p {
+  font-size: 1rem;
+}
+
+#year {
+  font-weight: bold;
+}
+
+/* Updates */
+.announcements-page {
+  width: 80%;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.announcements-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.announcement {
+  border-bottom: 1px solid #ddd;
+  padding: 20px 0;
+}
+
+.announcement-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.announcement-date {
+  flex-shrink: 0;
+  width: 100px; /* Adjust width as needed */
+  font-size: 14px;
+  font-weight: bold;
+  color: #555;
+  text-align: right;
+}
+
+.announcement-content {
+  flex-grow: 1;
+}
+
+.announcement-title {
+  font-size: 18px;
+  margin: 0 0 10px;
+  font-weight: bold;
+  color: #333;
+}
+
+.announcement-content p {
+  margin: 0 0 10px;
+  color: #999;
+}
+
+.announcement-content a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.announcement-content a:hover {
+  text-decoration: underline;
+}
+
+/* Contact Us Form */
+.contact {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: white;
+}
+
+.contact .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 80%;  /* Adjust the width as needed */
+}
+
+.contact .container img {
+  width: 45%; /* Adjust the width of the image */
+  height: auto; /* Maintain aspect ratio */
+}
+
+.contact form {
+  width: 50%;  /* Adjust the width of the form */
+  text-align: center;
+}
+
+form .input-box {
+  display: flex;
+  justify-content: space-between;
+}
+
+.input-box .input-field {
+  width: 48.5%;
+}
+
+.field .item {
+  width: 100%;
+  padding: 18px;
+  background: transparent;
+  border: 2px solid #F97C7C;
+  outline: none;
+  border-radius: 6px;
+  font-size: 16px;
+  color: black;
+  margin: 12px 0;
+}
+
+.field .item::placeholder {
+  color: #777;
+}
+
+form .textarea-field .item {
+  resize: none;
+}
+
+form .textarea-field {
+  margin-top: -10px;
+}
+
+.contact button{
+  padding: 12px 32px;
+  background: #F97C7C;
+  border: none;
+  outline: none;
+  border-radius: 6px;
+  box-shadow: 0 0 10px #FDAAAA;
+  font-size: 16px;
+  color: white;
+  letter-spacing: 1px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+form button:hover{
+  box-shadow: none;
+}
+
+/* Archives page (editions) */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.product-card {
+  background-color: #f9f9f9;
+  padding: 20px;
+  border: 1px solid #ddd;
+  text-align: center;
+  text-decoration: none; /* Remove underline from link */
+  cursor: pointer; /* Make the cursor indicate it is clickable */
+  display: block; /* Make the whole card clickable */
+  border-radius: 5px;
+}
+
+.product-card:hover {
+  background-color: #f1f1f1; /* Optional: Add a hover effect */
+}
+
+.product-img {
+  width: 100%;
+  height: auto;
+  max-width: 200px;
+  margin-bottom: 10px;
+}
+
+.product-title {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.product-date {
+  font-size: 14px;
+  color: #777;
+}
+
+/* Submissions page */
+.submission-grid {
+  display: grid; /* Use grid layout */
+  grid-template-columns: 1fr; /* Create a single column layout */
+  gap: 20px; /* Add spacing between cards */
+  margin-top: 20px;
+}
+
+.submission-card {
+  background-color: #f9f9f9;
+  padding: 20px;
+  border: 5px solid #ddd;
+  text-align: left;
+  text-decoration: none; /* Remove underline from link */
+  cursor: pointer; /* Make the cursor indicate it is clickable */
+}
+
+.submission-card:hover {
+  background-color: #f1f1f1; /* Optional: Add a hover effect */
+}
+
+.submission-title {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.submission-card p {
+  font-size: 16px;
+  color: #333;
+}
+
